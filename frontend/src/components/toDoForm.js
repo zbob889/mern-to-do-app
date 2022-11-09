@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useToDosContext } from '../hooks/useToDosContext';
 
 export const ToDoForm = () => {
 
+    const { dispatch } = useToDosContext();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [error, setError] = useState(null);
@@ -28,6 +30,7 @@ export const ToDoForm = () => {
             setError(null);
             setTitle('');
             console.log('new to-do added:', json);
+            dispatch({type: 'CREATE_TODO', payload: json});
         };
     };
 
