@@ -44,7 +44,6 @@ export const ToDoForm = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
-                {error && <div className='error'>{error}</div>}
             </form>
         </div>
     )

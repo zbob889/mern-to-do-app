@@ -7,6 +7,6 @@ export const DescriptionTitle = ({ currentId }) => {
     const title = currentToDo ? currentToDo.title : '';
 
     return(
-        <div>{title}</div>
+        <div id="descriptionTitle">{title}</div>
     )
 }
