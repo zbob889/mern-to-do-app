@@ -7,7 +7,7 @@ export const ToDoItem = (props) => {
 
     const { dispatch } = useToDosContext();
 
-    const handleChange = async (e) => {
+    const handleCheckbox = async (e) => {
         if(e.target.checked){
             // delete doc with _id docId
             const response = await fetch(`/api/toDos/${docId}`, {
@@ -25,16 +25,42 @@ export const ToDoItem = (props) => {
         };
     };
 
+    const handleTitleChange = async (e) => {
+
+        console.log('title change');
+
+        const newTitle = {"title": `${e.target.value}`};
+
+        const response = await fetch(`/api/toDos/${docId}`, {
+            method: 'PATCH',
+            body: JSON.stringify(newTitle),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const json = await response.json();
+
+        if(!response.ok){
+            console.log('error')
+        };
+        if(response.ok){
+            console.log(json);
+            dispatch({type: 'SET_TODO', payload: json});
+        };
+    };
+
     return(
         <div className="toDoItem">
             <input type="checkbox"
-                onChange={handleChange} 
+                onChange={handleCheckbox} 
             />
             <input 
                 type="text"
                 className="projectName"
-                value={title}
+                defaultValue={title}
                 id={docId}
+                onBlur={handleTitleChange}
             />
         </div>
     )

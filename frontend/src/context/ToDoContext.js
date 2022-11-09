@@ -16,6 +16,10 @@ export const toDosReducer = (state, action) => {
             return{
                 toDos: state.toDos.filter((toDo) => toDo._id !== action.payload._id)
             }
+        case 'UPDATE_TODO':
+            return {
+
+            }
         default:
             return state
     };
