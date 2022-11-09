@@ -26,9 +26,6 @@ export const ToDoItem = (props) => {
     };
 
     const handleTitleChange = async (e) => {
-
-        console.log('title change');
-
         const newTitle = {"title": `${e.target.value}`};
 
         const response = await fetch(`/api/toDos/${docId}`, {
@@ -45,9 +42,12 @@ export const ToDoItem = (props) => {
             console.log('error')
         };
         if(response.ok){
-            console.log(json);
             dispatch({type: 'SET_TODO', payload: json});
         };
+    };
+
+    const handleFocus = () => {
+        dispatch({type: 'CHANGE_CURRENT_TODO', payload: props.toDo});
     };
 
     return(
@@ -61,6 +61,7 @@ export const ToDoItem = (props) => {
                 defaultValue={title}
                 id={docId}
                 onBlur={handleTitleChange}
+                onFocus={handleFocus}
             />
         </div>
     )

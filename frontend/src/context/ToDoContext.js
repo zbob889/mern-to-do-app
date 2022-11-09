@@ -13,12 +13,13 @@ export const toDosReducer = (state, action) => {
                 toDos: [action.payload, ...state.toDos]
             }
         case 'DELETE_TODO':
-            return{
+            return {
                 toDos: state.toDos.filter((toDo) => toDo._id !== action.payload._id)
             }
-        case 'UPDATE_TODO':
+        case 'CHANGE_CURRENT_TODO':
             return {
-
+                toDos: state.toDos,
+                currentToDo: action.payload
             }
         default:
             return state
@@ -28,7 +29,8 @@ export const toDosReducer = (state, action) => {
 export const ToDoContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(toDosReducer, {
-        toDos: null
+        toDos: null,
+        currentToDo: null
     });
 
 
