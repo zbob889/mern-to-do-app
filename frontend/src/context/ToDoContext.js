@@ -12,6 +12,10 @@ export const toDosReducer = (state, action) => {
             return {
                 toDos: [action.payload, ...state.toDos]
             }
+        case 'DELETE_TODO':
+            return{
+                toDos: state.toDos.filter((toDo) => toDo._id !== action.payload._id)
+            }
         default:
             return state
     };

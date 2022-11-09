@@ -18,9 +18,6 @@ export const ToDoDisplay = () => {
         fetchToDos();
     }, [dispatch]);
 
-    console.log(toDos);
-
-
     return (
         <div id="toDoDisplay">
 
