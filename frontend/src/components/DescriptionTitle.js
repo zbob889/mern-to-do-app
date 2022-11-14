@@ -1,6 +1,6 @@
 import { useToDosContext } from "../hooks/useToDosContext";
 
-export const DescriptionTitle = ({ currentId }) => {
+export const DescriptionTitle = () => {
 
     const { currentToDo } = useToDosContext();
 

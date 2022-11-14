@@ -30,7 +30,7 @@ export const ToDoContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(toDosReducer, {
         toDos: null,
-        currentToDo: null
+        currentToDo: null,
     });
 
 
