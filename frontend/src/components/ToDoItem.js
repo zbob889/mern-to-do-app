@@ -9,7 +9,6 @@ export const ToDoItem = (props) => {
 
     const handleCheckbox = async (e) => {
         if(e.target.checked){
-            // delete doc with _id docId
             const response = await fetch(`/api/toDos/${docId}`, {
                 method: 'DELETE',
             });
@@ -36,13 +35,11 @@ export const ToDoItem = (props) => {
             }
         });
 
-        const json = await response.json();
-
         if(!response.ok){
             console.log('error')
         };
         if(response.ok){
-            dispatch({type: 'SET_TODO', payload: json});
+            dispatch({type: 'UPDATE_CURRENT_TODO_TITLE', payload: `${e.target.value}`});
         };
     };
 
@@ -66,7 +63,7 @@ export const ToDoItem = (props) => {
                 className="projectName"
                 defaultValue={title}
                 id={docId}
-                onBlur={handleTitleChange}
+                onChange={handleTitleChange}
                 onFocus={handleFocus}
             />
         </div>

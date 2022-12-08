@@ -24,6 +24,14 @@ export const toDosReducer = (state, action) => {
                 toDos: state.toDos,
                 currentToDo: action.payload
             }
+        case 'UPDATE_CURRENT_TODO_TITLE':
+            return {
+                toDos: state.toDos,
+                currentToDo: {
+                    ...state.currentToDo,
+                    "title": action.payload
+                }
+            }
         case 'UPDATE_CURRENT_TODO_DESCRIPTION':
             return {
                 toDos: state.toDos,

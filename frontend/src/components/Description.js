@@ -8,7 +8,6 @@ export const Description = () => {
     const [inputValue, setInputValue] = useState('');
 
     useEffect(() => {
-        console.log('useEffect fired', currentToDo);
         const description = currentToDo ? currentToDo.description : '';
         setInputValue(description);
     }, [currentToDo]);
