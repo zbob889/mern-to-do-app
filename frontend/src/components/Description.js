@@ -1,5 +1,6 @@
 import { useToDosContext } from "../hooks/useToDosContext";
 import { useState, useEffect } from "react";
+import '../styles/Description.css';
 
 export const Description = () => {
 
@@ -13,7 +14,6 @@ export const Description = () => {
     }, [currentToDo]);
 
     const handleOnChange = (e) => {
-        console.log('handleOnChange fired');
         setInputValue(e.value);
     };
 
@@ -28,15 +28,11 @@ export const Description = () => {
             }
         });
 
-        const json = await response.json();
-
         if(!response.ok){
             console.log('error')
         };
         if(response.ok){
-            console.log('to-do description updated:', json);
             dispatch({type: 'UPDATE_CURRENT_TODO_DESCRIPTION', payload: `${e.target.value}`});
-            console.log(currentToDo);
         };
     };
 
@@ -50,11 +46,12 @@ export const Description = () => {
     if(currentToDo){
         return(
             <div id="Description">
-                <form>
-                    <input 
+                <form id="description-form">
+                    <textarea 
                         type="text"
                         id="description-box"
                         value={inputValue}
+                        placeholder="Description"
                         onChange={handleOnChange}
                         onBlur={handleDescriptionChange}
                     />

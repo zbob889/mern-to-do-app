@@ -1,0 +1,16 @@
+#toDoDisplay {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.toDos {
+    background-color: var(--form-bg);
+}
+
+.toDosContent {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}

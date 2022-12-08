@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useToDosContext } from '../hooks/useToDosContext';
 import { ToDoItem } from "./ToDoItem";
+import '../styles/ToDoDisplay.css';
 
 export const ToDoDisplay = () => {
     const { toDos, dispatch } = useToDosContext();
@@ -21,9 +22,8 @@ export const ToDoDisplay = () => {
     return (
         <div id="toDoDisplay">
 
-            <label for="check" className="projectButton">To-Dos</label>
-            <input type="checkbox" className="projectCheck" id="check" />
-            <div className="projectContent" id="miscProject">
+            <div className="toDos">To-Dos</div>
+            <div className="toDosContent" id="miscProject">
                 {toDos && toDos.map(toDo => (
                     <ToDoItem toDo={toDo} key={toDo._id} />
                 ))}

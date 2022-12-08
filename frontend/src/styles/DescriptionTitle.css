@@ -1,0 +1,9 @@
+#toDoNotes {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    box-sizing: border-box;
+    font-size: 20px;
+}

@@ -1,4 +1,5 @@
 import { useToDosContext } from '../hooks/useToDosContext';
+import '../styles/ToDoItem.css';
 
 export const ToDoItem = (props) => {
 
@@ -56,6 +57,7 @@ export const ToDoItem = (props) => {
     return(
         <div className="toDoItem">
             <input type="checkbox"
+                className="checkbox"
                 onChange={handleCheckbox} 
             />
             <input 

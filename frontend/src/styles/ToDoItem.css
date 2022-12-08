@@ -1,0 +1,28 @@
+
+.toDoItem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid rgb(67, 67, 67);
+    padding-bottom: 12px;
+  }
+
+.checkbox {
+    appearance: none;
+    background-color: var(--bg-color);
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+  
+.projectName {
+    background-color: var(--bg-color);
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 18px;
+  }
