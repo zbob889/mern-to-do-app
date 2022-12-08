@@ -6,10 +6,12 @@ export const Description = () => {
     const { currentToDo, dispatch } = useToDosContext();
 
     const [inputValue, setInputValue] = useState('');
-    
-    // if(currentToDo){
-    //     setInputValue(currentToDo.description);
-    // };
+
+    useEffect(() => {
+        console.log('useEffect fired', currentToDo);
+        const description = currentToDo ? currentToDo.description : '';
+        setInputValue(description);
+    }, [currentToDo]);
 
     const handleOnChange = (e) => {
         console.log('handleOnChange fired');
@@ -33,8 +35,9 @@ export const Description = () => {
             console.log('error')
         };
         if(response.ok){
-            console.log(json);
-            dispatch({type: 'SET_TODO', payload: json});
+            console.log('to-do description updated:', json);
+            dispatch({type: 'UPDATE_CURRENT_TODO_DESCRIPTION', payload: `${e.target.value}`});
+            console.log(currentToDo);
         };
     };
 

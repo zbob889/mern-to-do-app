@@ -46,8 +46,14 @@ export const ToDoItem = (props) => {
         };
     };
 
-    const handleFocus = () => {
-        dispatch({type: 'CHANGE_CURRENT_TODO', payload: props.toDo});
+    const handleFocus = async () => {
+
+        const response = await fetch(`/api/toDos/${docId}`);
+        const json = await response.json();
+
+        if(response.ok){
+            dispatch({type: 'CHANGE_CURRENT_TODO', payload: json});
+        };
     };
 
     return(
