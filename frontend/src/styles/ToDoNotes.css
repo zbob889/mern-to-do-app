@@ -1,3 +1,22 @@
+#description-message {
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    padding-top: 30vh;
+    align-items: center;
+    gap: 20px;
+}
+
+#description-img {
+    height: auto;
+    width: 20%;
+}
+
+#description-message-text {
+    font-size: 20px;
+    color: gray;
+}
+
 #toDoNotes {
-    
+
 }

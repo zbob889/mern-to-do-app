@@ -5,12 +5,14 @@ import '../styles/ToDoNotes.css';
 
 export const ToDoNotes = () => {
 
-    const { currentToDo, dispatch } = useToDosContext();
+    const { currentToDo } = useToDosContext();
 
 
     if(!currentToDo){
         return (
-            <div id="toDoNotes">
+            <div id="description-message">
+                <img id="description-img" src="https://www.svgrepo.com/show/239907/select.svg" alt="" />
+                <div id="description-message-text">Click task title to view the description</div>
             </div>
         );
     };
