@@ -6,7 +6,7 @@ export const ToDoList = () => {
     return(
         <div id="toDoLists">
             <div id="toDoTitle">
-                To-Do Lists
+                To-Do List
             </div>
             <ToDoForm />
             <ToDoDisplay />
