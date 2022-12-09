@@ -7,8 +7,8 @@ const {
     updateToDo
 } = require('../controllers/toDoController');
 const router = express.Router();
-
 const app = express();
+const cors = require('cors')
 
 // Allow CORS
 app.all('/', function(req, res, next) {
