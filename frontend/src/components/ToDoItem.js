@@ -10,7 +10,7 @@ export const ToDoItem = (props) => {
 
     const handleCheckbox = async (e) => {
         if(e.target.checked){
-            const response = await fetch(`/api/toDos/${docId}`, {
+            const response = await fetch(`${process.env.PORT}/api/toDos/${docId}`, {
                 method: 'DELETE',
             });
 
@@ -28,7 +28,7 @@ export const ToDoItem = (props) => {
     const handleTitleChange = async (e) => {
         const newTitle = {"title": `${e.target.value}`};
 
-        const response = await fetch(`/api/toDos/${docId}`, {
+        const response = await fetch(`${process.env.PORT}/api/toDos/${docId}`, {
             method: 'PATCH',
             body: JSON.stringify(newTitle),
             headers: {
@@ -46,7 +46,7 @@ export const ToDoItem = (props) => {
 
     const handleFocus = async () => {
 
-        const response = await fetch(`/api/toDos/${docId}`);
+        const response = await fetch(`${process.env.PORT}/api/toDos/${docId}`);
         const json = await response.json();
 
         if(response.ok){

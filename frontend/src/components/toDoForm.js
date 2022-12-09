@@ -13,7 +13,7 @@ export const ToDoForm = () => {
 
         let toDo = {title, description};
 
-        const response = await fetch('/api/toDos', {
+        const response = await fetch(`${process.env.PORT}/api/toDos`, {
             method: 'POST',
             body: JSON.stringify(toDo),
             headers: {
