@@ -8,6 +8,8 @@ const {
 } = require('../controllers/toDoController');
 const router = express.Router();
 
+const app = express();
+
 // Allow CORS
 app.all('/', function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
