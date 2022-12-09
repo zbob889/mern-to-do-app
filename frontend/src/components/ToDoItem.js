@@ -12,6 +12,11 @@ export const ToDoItem = (props) => {
         if(e.target.checked){
             const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos/${docId}`, {
                 method: 'DELETE',
+                headers : {
+                    "Access-Control-Allow-Headers": "*",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "*"      
+                }
             });
 
             const json = await response.json();
@@ -32,7 +37,10 @@ export const ToDoItem = (props) => {
             method: 'PATCH',
             body: JSON.stringify(newTitle),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "*"
             }
         });
 
@@ -46,7 +54,11 @@ export const ToDoItem = (props) => {
 
     const handleFocus = async () => {
 
-        const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos/${docId}`);
+        const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos/${docId}`, {
+            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods": "*"
+        });
         const json = await response.json();
 
         if(response.ok){

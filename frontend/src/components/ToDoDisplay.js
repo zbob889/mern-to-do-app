@@ -8,7 +8,13 @@ export const ToDoDisplay = () => {
 
     useEffect(() => {
         const fetchToDos = async () => {
-            const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos`);
+            const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos`, {
+                headers : {
+                    "Access-Control-Allow-Headers": "*",
+                    "Access-Control-Allow-Origin": "*",
+                    "Access-Control-Allow-Methods": "*"      
+                }
+            });
             const json = await response.json();
 
             if(!response.ok){

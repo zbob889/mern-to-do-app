@@ -24,7 +24,10 @@ export const Description = () => {
             method: 'PATCH',
             body: JSON.stringify(newDescription),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Headers": "*",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": "*"
             }
         });
 
