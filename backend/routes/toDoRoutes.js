@@ -18,6 +18,8 @@ app.all('/', function(req, res, next) {
 });
 app.options('*', cors());
 
+app.use(cors());
+
 // GET all to-dos
 router.get('/', getToDos);
 
