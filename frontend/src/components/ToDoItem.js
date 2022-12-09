@@ -11,12 +11,7 @@ export const ToDoItem = (props) => {
     const handleCheckbox = async (e) => {
         if(e.target.checked){
             const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos/${docId}`, {
-                method: 'DELETE',
-                headers : {
-                    "Access-Control-Allow-Headers": "*",
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Methods": "*"      
-                }
+                method: 'DELETE'
             });
 
             const json = await response.json();
@@ -37,10 +32,7 @@ export const ToDoItem = (props) => {
             method: 'PATCH',
             body: JSON.stringify(newTitle),
             headers: {
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Headers": "*",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Methods": "*"
+                'Content-Type': 'application/json'
             }
         });
 
@@ -54,11 +46,7 @@ export const ToDoItem = (props) => {
 
     const handleFocus = async () => {
 
-        const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos/${docId}`, {
-            "Access-Control-Allow-Headers": "*",
-            "Access-Control-Allow-Origin": "*",
-            "Access-Control-Allow-Methods": "*"
-        });
+        const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos/${docId}`);
         const json = await response.json();
 
         if(response.ok){
