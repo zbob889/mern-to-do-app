@@ -8,8 +8,12 @@ export const ToDoDisplay = () => {
 
     useEffect(() => {
         const fetchToDos = async () => {
-            const response = await fetch(`${process.env.REACT_APP_PORT}/api/toDos`);
+            const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos`);
             const json = await response.json();
+
+            if(!response.ok){
+                console.log(response);
+            };
 
             if(response.ok){
                 dispatch({type: 'SET_TODOS', payload: json});

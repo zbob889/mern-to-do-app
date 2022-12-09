@@ -13,7 +13,7 @@ export const ToDoForm = () => {
 
         let toDo = {title, description};
 
-        const response = await fetch(`${process.env.PORT}/api/toDos`, {
+        const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos`, {
             method: 'POST',
             body: JSON.stringify(toDo),
             headers: {

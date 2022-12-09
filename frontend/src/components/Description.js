@@ -20,7 +20,7 @@ export const Description = () => {
     const handleDescriptionChange = async (e) => {
         const newDescription = {"description": `${e.target.value}`};
 
-        const response = await fetch(`${process.env.PORT}/api/toDos/${currentToDo._id}`, {
+        const response = await fetch(`https://mern-to-do-app-production.up.railway.app/api/toDos/${currentToDo._id}`, {
             method: 'PATCH',
             body: JSON.stringify(newDescription),
             headers: {
