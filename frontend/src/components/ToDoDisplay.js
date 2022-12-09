@@ -8,7 +8,7 @@ export const ToDoDisplay = () => {
 
     useEffect(() => {
         const fetchToDos = async () => {
-            const response = await fetch(`${process.env.PORT}/api/toDos`);
+            const response = await fetch(`${process.env.REACT_APP_PORT}/api/toDos`);
             const json = await response.json();
 
             if(response.ok){
