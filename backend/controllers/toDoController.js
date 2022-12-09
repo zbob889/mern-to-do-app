@@ -2,14 +2,14 @@ const ToDo = require('../models/toDoModel');
 const mongoose = require('mongoose');
 
 // GET all to-dos
-const getToDos = async(req, res) => {
+const getToDos = async(req, res, next) => {
     const toDos = await ToDo.find({}).sort({createdAt: -1});
 
     res.status(200).json(toDos);
 };
 
 // GET a single to-do
-const getToDo = async(req, res) => {
+const getToDo = async(req, res, next) => {
     const { id } = req.params;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
@@ -26,7 +26,7 @@ const getToDo = async(req, res) => {
 };
 
 // CREATE a new to-do
-const createToDo = async(req, res) => {
+const createToDo = async(req, res, next) => {
     const {title, description} = req.body;
 
     try {
@@ -38,7 +38,7 @@ const createToDo = async(req, res) => {
 };
 
 // DELETE a to-do
-const deleteToDo = async(req, res) => {
+const deleteToDo = async(req, res, next) => {
     const { id } = req.params;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
@@ -55,7 +55,7 @@ const deleteToDo = async(req, res) => {
 };
 
 // UPDATE a to-do
-const updateToDo = async(req, res) => {
+const updateToDo = async(req, res, next) => {
     const { id } = req.params;
 
     if(!mongoose.Types.ObjectId.isValid(id)){
