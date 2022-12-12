@@ -3,24 +3,18 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const toDoRoutes = require('./routes/toDoRoutes');
-
-// express app
 const app = express();
+const cors = require('cors')
 
 // middleware
 app.use(express.json());
+
+app.use(cors());
 
 app.use((req, res, next) => {
   console.log(req.path, req.method)
   next()
 });
-
-// Allow CORS
-// app.all('/', function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//   next()
-// });
 
 // routes
 app.use('/api/toDos', toDoRoutes);

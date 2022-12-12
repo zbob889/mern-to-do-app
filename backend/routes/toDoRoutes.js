@@ -7,18 +7,6 @@ const {
     updateToDo
 } = require('../controllers/toDoController');
 const router = express.Router();
-const app = express();
-const cors = require('cors')
-
-// Allow CORS
-app.all('/', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next()
-});
-app.options('*', cors());
-
-app.use(cors());
 
 // GET all to-dos
 router.get('/', getToDos);
