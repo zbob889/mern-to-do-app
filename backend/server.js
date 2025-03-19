@@ -4,7 +4,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const toDoRoutes = require('./routes/toDoRoutes');
 const app = express();
-const cors = require('cors')
+const cors = require('cors');
 
 // middleware
 app.use(express.json());
