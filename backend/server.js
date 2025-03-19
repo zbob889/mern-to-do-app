@@ -14,7 +14,9 @@ app.use((req, res, next) => {
   next()
 });
 
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 
 // routes
 app.use('/api/toDos', toDoRoutes);
